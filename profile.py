@@ -14,10 +14,27 @@ class wall(db.Model):
     date = db.Column(db.DateTime, nullable=False)
 
 
-##the pages
+###the pages
+
+#the main profile page
 @app.route("/")
 def index():
     return render_template("index.html")
+#the wall page 
+#you can post things and read things and delete things
+@app.route("/wall", methods=["GET", "POST"])
+def theWall():
+    if request.method =="POST":
+        postAuthor = request.form["author"]
+        postContent = request.form["content"]
+        newPost = wall(name=postAuthor, content=postContent)
+        db.session.add(newPost)
+        db.session.commit()
+        return redirect("/wall")
+    else:
+        allPosts = wall.query.order_by(wall.date).all()
+        #i am not to sure about the "posts=allPosts"
+        return render_template("wall.html", posts=allPosts)
 
 
 ##running the app
