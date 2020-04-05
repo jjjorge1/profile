@@ -18,3 +18,9 @@ class wall(db.Model):
 @app.route("/")
 def index():
     return render_template("index.html")
+
+
+##running the app
+if __name__ == '__main__':
+    #db.create_all()
+    app.run(debug=True)
