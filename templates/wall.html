@@ -6,15 +6,6 @@
 
 {%block body%}
     <h1>The Wall</h1>
-    <h2>Create new post</h2>
-    <form action="/wall" method="POST">
-        Author: <input type="text" name="author" id="author">
-        <br>
-        Content: <input type="text" name="content" id="content">
-        <br>
-        <input type="submit" value="Tag">
-    </form>
-
     <hr>
 
     {%for post in theWall%}
@@ -28,8 +19,16 @@
 
         <p>{{post.content}}</p>
         <a href="/wall/delete/{{post.id}}">Delete</a>
-        <a href="/wall/edit/{{post.id}}">Edit</a>
         <hr>
-    {%end for%}
+    {%endfor%}
+
+    <h2>Create new post</h2>
+    <form action="/wall" method="POST">
+        Author: <input type="text" name="author" id="author">
+        <br>
+        Content: <input type="text" name="content" id="content">
+        <br>
+        <input type="submit" value="Tag">
+    </form>
 
 {%endblock%}

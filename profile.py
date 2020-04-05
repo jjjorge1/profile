@@ -3,15 +3,15 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
 app=Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///students.sqlite3"
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///wall.db"
 
 ###Setting up the database and the fields
 db = SQLAlchemy(app)
 class wall(db.Model):
     id=db.Column(db.Integer, primary_key = True)
     name = db.Column(db.String(25), nullable=False)
-    content = db.Column(db.Text, nullable=False)
-    date = db.Column(db.DateTime, nullable=False)
+    content = db.Column(db.Text, nullable=False, default="N/A")
+    date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
 
 ###the pages
@@ -33,11 +33,19 @@ def theWall():
         return redirect("/wall")
     else:
         allPosts = wall.query.order_by(wall.date).all()
-        #i am not to sure about the "posts=allPosts"
-        return render_template("wall.html", posts=allPosts)
+        return render_template("wall.html", theWall=allPosts)
+
+#deleting posts
+@app.route("/wall/delete/<int:id>", methods=["GET", "POST"])
+def delete(id):
+    post = wall.query.get_or_404(id)
+    db.session.delete(post)
+    db.session.commit()
+    return redirect("/wall")
+
 
 
 ##running the app
 if __name__ == '__main__':
-    #db.create_all()
+    db.create_all()
     app.run(debug=True)
