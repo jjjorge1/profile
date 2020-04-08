@@ -4,16 +4,18 @@
 {%endblock%}
 
 {%block body%}
-<div class="flex h-screen">
-    <div class="flex items-center flex-col m-auto">
+
+    <div class="flex items-center  h-screen w-screen">
     
-        <h1 class="flex-intial text-center">Jorge Castillo</h1>
-        <p class="flex-intial text-center">Please kindly look at the rest of my web site. Also if you'd like, you can post something on "The Wall"</p>
+
+        <h1 class="flex-grow text-center transform -rotate-90">Jorge Castillo</h1>
         
-        <ul class="flex flex-row">
-            <li class="flex-initial my-3 mx-5 border border-black"><a href="/">Home</a></li>
-            <li class="flex-initial my-3 mx-5 border border-black"><a href="/wall">The Wall</a></li>
+        
+        <ul class="flex flex-grow flex-col sm:flex-row">
+            <li class="flex-1 my-3 mx-5 border border-black text-center"><a href="/">Home</a></li>
+            <li class="flex-1 my-3 mx-5 border border-black text-center"><a href="/wall">The Wall</a></li>
         </ul>
+        
     </div>
-</div>
+
 {%endblock%}
