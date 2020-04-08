@@ -4,6 +4,16 @@
 {%endblock%}
 
 {%block body%}
-    <h1>Jorge Castillo</h1>
-    <p>Please kindly look at the rest of my web site. Also if you'd like, you can post something on "The Wall"</p>
+<div class="flex h-screen">
+    <div class="flex items-center flex-col m-auto">
+    
+        <h1 class="flex-intial text-center">Jorge Castillo</h1>
+        <p class="flex-intial text-center">Please kindly look at the rest of my web site. Also if you'd like, you can post something on "The Wall"</p>
+        
+        <ul class="flex flex-row">
+            <li class="flex-initial my-3 mx-5 border border-black"><a href="/">Home</a></li>
+            <li class="flex-initial my-3 mx-5 border border-black"><a href="/wall">The Wall</a></li>
+        </ul>
+    </div>
+</div>
 {%endblock%}
