@@ -5,9 +5,9 @@
 {%endblock%}
 
 {%block body%}
-    <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/wall">The Wall</a></li>
+    <ul class="nav justify-content-end">
+        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/wall">The Wall</a></li>
     </ul>
     <h1>The Wall</h1>
     <hr>
@@ -22,17 +22,21 @@
         {%endif%}
 
         <p>{{post.content}}</p>
-        <a href="/wall/delete/{{post.id}}">Delete</a>
+        <a class="btn btn-danger" role="button"href="/wall/delete/{{post.id}}">Delete</a></button>
         <hr>
     {%endfor%}
 
     <h2>Create new post</h2>
     <form action="/wall" method="POST">
-        Author: <input type="text" name="author" id="author">
+        <div class="form-group">
+        <label for="author">Author</label>
+        <input type="text" name="author" id="author" class="form-control">
         <br>
-        Content: <input type="text" name="content" id="content">
+        <label for="content">Post</label>
+        <textarea name="content" id="content" rows="3" class="form-control"></textarea>
         <br>
-        <input type="submit" value="Post">
+        <button type="submit" class="btn btn-success">Post</button>
+        </div>
     </form>
 
 {%endblock%}
