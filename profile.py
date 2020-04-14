@@ -24,7 +24,7 @@ def index():
 #the portfolio page
 @app.route("/portfolio")
 def portfolio():
-    return render_template("protfolio.html")
+    return render_template("portfolio.html")
 #the wall page 
 #you can post things and read things and delete things
 @app.route("/wall", methods=["GET", "POST"])

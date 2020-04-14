@@ -7,7 +7,7 @@
 {%block body%}
     <ul class="nav justify-content-end">
         <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="/wall">The Wall</a></li>
+        <li class="nav-item"><a class="nav-link" href="/portfolio">Portfolio</a></li>
     </ul>
     <h1>The Wall</h1>
     <hr>
@@ -15,10 +15,10 @@
     {%for post in theWall%}
         {%if post.name%}
             <h3>{{post.name}}</h3>
-            <h5>{{post.date}}</h5>
+            <p>{{post.date}}</p>
         {%else%}
             <h3>Stranger</h3>
-            <h5>{{post.date}}</h5>
+            <p>{{post.date}}</p>
         {%endif%}
 
         <p>{{post.content}}</p>
