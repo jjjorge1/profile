@@ -48,6 +48,11 @@ def delete(id):
     db.session.commit()
     return redirect("/wall")
 
+#projects page
+@app.route("/projects")
+def projects():
+    return render_template("projects.html")
+
 
 
 ##running the app
